@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/Windows%2010/Downloads/index_3.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3D Print Premium - Acervo de arquivos STL prontos para impressão 3D. Transforme sua impressora em uma fonte de renda.">
+<title>3D Print Premium — Acervo STL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --green:       #00E676;
+    --green-dim:   #00C853;
+    --green-dark:  #00701A;
+    --green-glow:  rgba(0,230,118,0.18);
+    --black:       #000000;
+    --dark:        #080808;
+    --dark2:       #0E0E0E;
+    --dark3:       #141414;
+    --dark4:       #1C1C1C;
+    --border:      rgba(0,230,118,0.12);
+    --border-dim:  rgba(255,255,255,0.07);
+    --white:       #FFFFFF;
+    --gray:        #777777;
+    --gray-light:  #BBBBBB;
+    --red:         #FF3B3B;
+    --gold:        #FFD600;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid rgba(0,230,118,0.4);
+    padding: 4px 14px; border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; letter-spacing: 4px; color: var(--white);
+  }
+  .logo span { color: var(--green); }
+  .logo-dot {
+    display: inline-block; width: 8px; height: 8px;
+    background: var(--green); border-radius: 50%;
+    margin: 0 6px 2px; vertical-align: middle;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 90px 20px 70px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0,230,118,0.14) 0%, transparent 65%),
+      repeating-linear-gradient(0deg, rgba(0,230,118,0.025) 0px, rgba(0,230,118,0.025) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(90deg, rgba(0,230,118,0.025) 0px, rgba(0,230,118,0.025) 1px, transparent 1px, transparent 60px);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,230,118,0.08);
+    border: 1px solid rgba(0,230,118,0.3);
+    padding: 6px 16px; border-radius: 20px;
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 28px;
+  }
+  .hero-badge .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(44px, 9.5vw, 92px);
+    line-height: 0.95; letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+  .hero h1 .hl {
+    color: var(--green);
+    -webkit-text-stroke: 1px rgba(0,230,118,0.6);
+  }
+  .hero-checks {
+    display: flex; gap: 28px; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 40px;
+    font-size: 15px; font-weight: 600; color: var(--gray-light);
+  }
+  .hero-checks span { display: flex; align-items: center; gap: 7px; }
+  .hero-checks span::before {
+    content: '✓';
+    width: 20px; height: 20px;
+    background: rgba(0,230,118,0.15);
+    border: 1px solid rgba(0,230,118,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--green);
+    flex-shrink: 0;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-cta {
+    display: inline-block;
+    background: var(--green);
+    color: #000; font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 2px;
+    padding: 18px 52px; border-radius: 3px;
+    text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 0 48px rgba(0,230,118,0.35), 0 8px 24px rgba(0,0,0,0.6);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    position: relative; overflow: hidden; font-weight: 900;
+  }
+  .btn-cta:hover {
+    background: #1FFFA0;
+    transform: translateY(-2px);
+    box-shadow: 0 0 70px rgba(0,230,118,0.5), 0 12px 32px rgba(0,0,0,0.7);
+  }
+  .btn-sub { font-size: 12px; color: var(--gray); margin-top: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+  /* ── CATEGORIES ── */
+  .categories {
+    padding: 64px 20px;
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    text-align: center; font-size: 11px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--green); margin-bottom: 36px;
+  }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px; max-width: 900px; margin: 0 auto;
+  }
+  .cat-card {
+    background: var(--dark3);
+    border: 1px solid var(--border-dim);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/3;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default;
+  }
+  .cat-card:hover {
+    border-color: rgba(0,230,118,0.5);
+    transform: translateY(-4px);
+  }
+  .cat-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+  .cat-card:hover img { transform: scale(1.07); }
+  .cat-card .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
+    pointer-events: none;
+  }
+  .cat-card .label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px 12px;
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--white);
+    z-index: 2;
+  }
+  .cat-card .badge {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(0,230,118,0.15);
+    border: 1px solid rgba(0,230,118,0.45);
+    color: var(--green);
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 3px 7px; border-radius: 2px;
+    z-index: 2;
+  }
+
+  /* ── PROBLEM ── */
+  .problem { padding: 80px 20px; text-align: center; }
+  .problem h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(34px, 6.5vw, 58px);
+    letter-spacing: 2px; line-height: 1; margin-bottom: 14px;
+  }
+  .problem .sub { color: var(--gray); font-size: 17px; margin-bottom: 48px; }
+  .problem-list { display: flex; flex-direction: column; gap: 10px; max-width: 480px; margin: 0 auto; }
+  .problem-item {
+    background: rgba(255,59,59,0.06);
+    border: 1px solid rgba(255,59,59,0.18);
+    border-left: 3px solid rgba(255,59,59,0.6);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 20px;
+    font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; gap: 12px;
+    text-align: left;
+  }
+  .problem-item .x { color: var(--red); font-weight: 900; flex-shrink: 0; }
+
+  /* ── HOW IT WORKS ── */
+  .how { padding: 80px 20px; background: var(--dark2); }
+  .how h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 6vw, 52px);
+    letter-spacing: 2px; text-align: center; margin-bottom: 48px;
+  }
+  .steps {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px; max-width: 820px; margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden;
+  }
+  .step {
+    background: var(--dark3);
+    padding: 36px 28px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .step:last-child { border-right: none; }
+  .step:hover { background: rgba(0,230,118,0.04); }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px; color: rgba(0,230,118,0.2);
+    line-height: 1; margin-bottom: 10px;
+  }
+  .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+  .step p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+
+  /* ── COMPARISON ── */
+  .comparison { padding: 80px 20px; }
+  .comparison h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 6vw, 52px);
+    letter-spacing: 2px; text-align: center; margin-bottom: 48px;
+  }
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    max-width: 820px; margin: 0 auto;
+  }
+  .compare-col { border-radius: 8px; padding: 28px 24px; }
+  .compare-col.bad {
+    background: rgba(255,59,59,0.05);
+    border: 1px solid rgba(255,59,59,0.2);
+  }
+  .compare-col.good {
+    background: rgba(0,230,118,0.05);
+    border: 1px solid rgba(0,230,118,0.25);
+  }
+  .compare-col h3 {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .compare-col.bad h3 { color: var(--red); }
+  .compare-col.good h3 { color: var(--green); }
+  .compare-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .compare-col ul li { font-size: 14px; font-weight: 600; display: flex; align-items: flex-start; gap: 10px; color: var(--gray-light); }
+  .compare-col.bad ul li::before { content: '✕'; color: var(--red); flex-shrink: 0; }
+  .compare-col.good ul li::before { content: '✓'; color: var(--green); flex-shrink: 0; }
+
+  /* ── BONUSES ── */
+  .bonuses { padding: 80px 20px; background: var(--dark2); text-align: center; }
+  .bonuses h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 6vw, 52px);
+    letter-spacing: 2px; margin-bottom: 8px;
+  }
+  .bonuses .sub { color: var(--gray); margin-bottom: 48px; }
+  .bonus-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px; max-width: 960px; margin: 0 auto 40px;
+  }
+  .bonus-card {
+    background: var(--dark3);
+    border: 1px solid var(--border-dim);
+    border-radius: 10px; overflow: hidden;
+    position: relative; text-align: left;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .bonus-card:hover { border-color: rgba(0,230,118,0.45); transform: translateY(-4px); }
+  .bonus-card .bonus-img {
+    width: 100%; height: 140px; object-fit: cover;
+    display: block; transition: transform 0.4s;
+  }
+  .bonus-card:hover .bonus-img { transform: scale(1.05); }
+  .bonus-card .bonus-img-wrap {
+    overflow: hidden; position: relative;
+  }
+  .bonus-card .free-tag {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(0,230,118,0.6);
+    color: var(--green);
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    padding: 3px 8px; border-radius: 2px;
+  }
+  .bonus-card .bonus-body { padding: 14px 14px 16px; }
+  .bonus-card h3 { font-size: 13px; font-weight: 700; margin-bottom: 5px; color: var(--white); }
+  .bonus-card p { font-size: 12px; color: var(--gray); line-height: 1.5; }
+  .bonus-total { font-size: 17px; color: var(--gray); text-decoration: line-through; margin-bottom: 6px; }
+  .bonus-free { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--green); letter-spacing: 2px; }
+
+  /* ── PRICING ── */
+  .pricing { padding: 80px 20px; text-align: center; }
+  .pricing h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 6vw, 52px);
+    letter-spacing: 2px; margin-bottom: 8px;
+  }
+  .pricing .sub { color: var(--gray); margin-bottom: 48px; }
+  .plans {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; max-width: 760px; margin: 0 auto;
+    align-items: start;
+  }
+  .plan {
+    background: var(--dark3);
+    border: 1px solid var(--border-dim);
+    border-radius: 10px; padding: 36px 28px;
+    text-align: left; position: relative;
+  }
+  .plan.featured {
+    border-color: rgba(0,230,118,0.45);
+    box-shadow: 0 0 50px rgba(0,230,118,0.1);
+  }
+  .plan-badge {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: #000;
+    font-size: 12px; font-weight: 900; letter-spacing: 1px;
+    padding: 5px 18px; border-radius: 20px; white-space: nowrap;
+  }
+  .plan h3 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; margin-bottom: 4px; }
+  .plan-from { font-size: 13px; color: var(--gray); text-decoration: line-through; }
+  .plan-installment { font-size: 20px; color: var(--green); font-weight: 700; margin-top: 4px; }
+  .plan-price { font-size: 46px; font-weight: 900; line-height: 1; margin: 6px 0 24px; }
+  .plan-price small { font-size: 15px; font-weight: 400; color: var(--gray); }
+  .plan ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .plan ul li { font-size: 14px; font-weight: 600; display: flex; align-items: flex-start; gap: 10px; color: var(--gray-light); }
+  .plan ul li::before { content: '✓'; color: var(--green); flex-shrink: 0; }
+  .btn-plan {
+    display: block; text-align: center;
+    background: var(--green); color: #000;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 2px;
+    padding: 16px 32px; border-radius: 3px;
+    text-decoration: none; border: none; cursor: pointer;
+    font-weight: 900;
+    box-shadow: 0 4px 24px rgba(0,230,118,0.25);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .btn-plan:hover { transform: translateY(-2px); background: #1FFFA0; box-shadow: 0 8px 36px rgba(0,230,118,0.4); }
+  .btn-plan.secondary {
+    background: transparent; border: 1px solid rgba(0,230,118,0.3); color: var(--green);
+    box-shadow: none;
+  }
+  .btn-plan.secondary:hover { background: rgba(0,230,118,0.08); box-shadow: none; transform: translateY(-1px); }
+
+  /* ── GUARANTEE ── */
+  .guarantee { padding: 60px 20px; background: var(--dark2); text-align: center; }
+  .guarantee-box {
+    max-width: 600px; margin: 0 auto;
+    border: 1px solid rgba(0,230,118,0.25);
+    border-radius: 12px; padding: 44px 36px;
+    background: rgba(0,230,118,0.03);
+  }
+  .guarantee .shield { font-size: 54px; margin-bottom: 16px; }
+  .guarantee h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; letter-spacing: 2px; color: var(--green); margin-bottom: 14px;
+  }
+  .guarantee p { color: var(--gray-light); font-size: 15px; line-height: 1.8; }
+
+  /* ── FAQ ── */
+  .faq { padding: 80px 20px; }
+  .faq h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 6vw, 52px);
+    letter-spacing: 2px; text-align: center; margin-bottom: 48px;
+  }
+  .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+  .faq-item {
+    background: var(--dark3);
+    border: 1px solid var(--border-dim);
+    border-radius: 8px; overflow: hidden;
+  }
+  .faq-q {
+    padding: 20px 24px; font-size: 15px; font-weight: 700;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    user-select: none; transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--green); }
+  .faq-q .arrow { font-size: 20px; color: var(--green); transition: transform 0.3s; }
+  .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s;
+    padding: 0 24px; color: var(--gray); font-size: 14px; line-height: 1.7;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    padding: 90px 20px; text-align: center;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 110%, rgba(0,230,118,0.12) 0%, transparent 65%),
+      var(--dark);
+  }
+  .final-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 7.5vw, 68px);
+    letter-spacing: 2px; line-height: 1; margin-bottom: 16px;
+  }
+  .final-cta p { color: var(--gray-light); font-size: 17px; margin-bottom: 40px; }
+  .trust-row {
+    display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 28px;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: var(--gray);
+  }
+  .trust-item .icon { font-size: 18px; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 28px 20px; text-align: center;
+    border-top: 1px solid var(--border-dim);
+    color: var(--gray); font-size: 13px;
+  }
+  footer a { color: var(--gray); text-decoration: none; }
+  footer a:hover { color: var(--green); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.9);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s; padding: 20px;
+  }
+  .modal-overlay.show { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--dark3);
+    border: 1px solid rgba(0,230,118,0.35);
+    border-radius: 12px; padding: 44px 36px;
+    max-width: 480px; width: 100%; text-align: center;
+    box-shadow: 0 0 80px rgba(0,230,118,0.15);
+    transform: scale(0.9); transition: transform 0.3s;
+  }
+  .modal-overlay.show .modal { transform: scale(1); }
+  .modal .stop { font-size: 44px; margin-bottom: 14px; }
+  .modal h3 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; margin-bottom: 12px; }
+  .modal p { color: var(--gray-light); margin-bottom: 20px; font-size: 15px; line-height: 1.6; }
+  .modal .old-price { font-size: 17px; text-decoration: line-through; color: var(--gray); }
+  .modal .new-price { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--green); letter-spacing: 2px; line-height: 1; }
+  .modal .timer { font-size: 32px; font-weight: 900; color: var(--red); margin: 14px 0 28px; font-variant-numeric: tabular-nums; }
+  .modal .btn-yes {
+    display: block; width: 100%;
+    background: var(--green); color: #000;
+    font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px;
+    padding: 18px; border-radius: 3px; text-decoration: none; border: none; cursor: pointer;
+    font-weight: 900; box-shadow: 0 4px 28px rgba(0,230,118,0.35);
+    transition: transform 0.2s, background 0.2s; margin-bottom: 14px;
+  }
+  .modal .btn-yes:hover { transform: translateY(-2px); background: #1FFFA0; }
+  .modal .btn-no { background: none; border: none; cursor: pointer; color: var(--gray); font-size: 13px; text-decoration: underline; padding: 4px; }
+  .modal .btn-no:hover { color: var(--gray-light); }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 600px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .plans { grid-template-columns: 1fr; }
+    .steps { border: none; border-radius: 0; gap: 10px; }
+    .step { border-right: none; border-radius: 8px; border: 1px solid var(--border); }
+    .modal { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">3D<span class="logo-dot"></span>PRINT <span>PREMIUM</span></div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> Acervo STL Premium para Impressão 3D</div>
+  <h1>TRANSFORME SUA<br>IMPRESSORA 3D EM UMA<br><span class="hl">FONTE DE RENDA</span></h1>
+  <div class="hero-checks">
+    <span>Sem modelar</span>
+    <span>Pronto pra vender</span>
+    <span>Acesso imediato</span>
+  </div>
+  <a href="file:///C:/Users/Windows%2010/Downloads/index_3.html#planos" class="btn-cta">QUERO ACESSAR AGORA ›</a>
+  <p class="btn-sub">Acesso imediato · Pagamento único · Vitalício</p>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="section-label">Categorias do Acervo</div>
+  <p style="text-align:center;color:var(--gray);font-size:15px;margin-top:-24px;margin-bottom:36px;">Produtos impressos e vendidos todo dia no Brasil</p>
+  <div class="cat-grid">
+
+    <div class="cat-card">
+      <img src="./index_files/bonus-marvel.webp" alt="Heróis Marvel" loading="lazy">
+      <div class="overlay"></div>
+      <span class="badge">Popular</span>
+      <div class="label">Marvel</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/bonus-chaveiros.webp" alt="Chaveiros 3D" loading="lazy">
+      <div class="overlay"></div>
+      <span class="badge">Mais vendido</span>
+      <div class="label">Chaveiros</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/tacacopa.webp" alt="Taça Copa" loading="lazy">
+      <div class="overlay"></div>
+      <span class="badge">Viral</span>
+      <div class="label">Taça Copa</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/stitch.webp" alt="Mascotes Esportivos" loading="lazy">
+      <div class="overlay"></div>
+      <span class="badge">Viral</span>
+      <div class="label">Mascotes</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/pantera.webp" alt="Pantera Negra" loading="lazy">
+      <div class="overlay"></div>
+      <div class="label">Decoração</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/fusca.webp" alt="Fusca Miniatura" loading="lazy">
+      <div class="overlay"></div>
+      <div class="label">Miniaturas</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/chaveiropistola1.webp" alt="Chaveiro Pistola" loading="lazy">
+      <div class="overlay"></div>
+      <span class="badge">Nicho forte</span>
+      <div class="label">Airsoft</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/desenhos.webp" alt="Personagens e Desenhos" loading="lazy">
+      <div class="overlay"></div>
+      <div class="label">Personagens</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/bonus-utensilios.webp" alt="Utensílios 3D" loading="lazy">
+      <div class="overlay"></div>
+      <div class="label">Utensílios</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/bonus-flexiveis.webp" alt="Modelos Flexíveis" loading="lazy">
+      <div class="overlay"></div>
+      <div class="label">Flexíveis</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/bonus-mascara.webp" alt="Máscaras 3D" loading="lazy">
+      <div class="overlay"></div>
+      <div class="label">Máscaras</div>
+    </div>
+
+    <div class="cat-card">
+      <img src="./index_files/minecraft-1.webp" alt="Minecraft 3D" loading="lazy">
+      <div class="overlay"></div>
+      <span class="badge">Alta busca</span>
+      <div class="label">Games</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="tag">Sua situação atual</div>
+  <h2>SUA IMPRESSORA ESTÁ<br>GANHANDO DINHEIRO<br>OU <span style="color:var(--green)">JUNTANDO POEIRA?</span></h2>
+  <p class="sub">Se você se identificou com algum item abaixo, o 3D Print Premium é pra você:</p>
+  <div class="problem-list">
+    <div class="problem-item fade-up"><span class="x">✕</span> Impressora parada por falta de demanda</div>
+    <div class="problem-item fade-up"><span class="x">✕</span> Sem ideias lucrativas do que vender</div>
+    <div class="problem-item fade-up"><span class="x">✕</span> Perdendo tempo com arquivos quebrados</div>
+    <div class="problem-item fade-up"><span class="x">✕</span> Paga caro por cada modelo separado</div>
+    <div class="problem-item fade-up"><span class="x">✕</span> Projetos limitados e pouco variados</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="container">
+    <div class="tag" style="display:block;text-align:center;">Como Funciona</div>
+    <h2>3 PASSOS PARA LUCRAR</h2>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">1</div>
+        <h3>Escolha e Baixe</h3>
+        <p>Acesse o acervo e baixe qualquer modelo instantaneamente após a confirmação.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">2</div>
+        <h3>Imprima Sem Erros</h3>
+        <p>Arquivos testados. Fatie direto no seu slicer favorito, sem retrabalho nenhum.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">3</div>
+        <h3>Lucro no Bolso</h3>
+        <p>Venda na Shopee, TikTok Shop ou loja própria e fature com sua impressora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="container">
+    <h2>A ESCOLHA É ÓBVIA</h2>
+    <div class="compare-grid fade-up">
+      <div class="compare-col bad">
+        <h3>❌ Sem o 3D Print Premium</h3>
+        <ul>
+          <li>Caça arquivos em sites e grupos</li>
+          <li>Modelos quebrados ou incompletos</li>
+          <li>Paga caro por cada modelo</li>
+          <li>Projetos limitados</li>
+          <li>Risco com arquivos suspeitos</li>
+        </ul>
+      </div>
+      <div class="compare-col good">
+        <h3>✅ Com o 3D Print Premium</h3>
+        <ul>
+          <li>+150 mil modelos em acesso instantâneo</li>
+          <li>Arquivos testados e prontos para fatiar</li>
+          <li>Pagamento único e vitalício</li>
+          <li>Material exclusivo com temas variados</li>
+          <li>Suporte completo sempre à mão</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUSES -->
+<section class="bonuses">
+  <div class="tag">Somente hoje</div>
+  <h2>GANHE 11 BÔNUS EXCLUSIVOS 🎁</h2>
+  <p class="sub">Aproveite esta oferta por tempo limitado</p>
+  <div class="bonus-grid">
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/fusca.webp" alt="Pack Veículos" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Pack de Veículos 3D</h3><p>Carros, motos, caminhões e muito mais prontos para impressão.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/bonus-marvel.webp" alt="Heróis Marvel" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Heróis Marvel</h3><p>Personagens e símbolos que fazem sucesso entre colecionadores.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/bonus-chaveiros.webp" alt="Pack Chaveiros" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Pack de Chaveiros</h3><p>+1.000 modelos criativos: logos, personagens e temas geek.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/bonus-flexiveis.webp" alt="Modelos Articulados" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Modelos Articulados</h3><p>+1.300 modelos articulados — febre nos marketplaces.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/bonus-classicos.webp" alt="Clássicos Animados" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Clássicos Animados</h3><p>+30 personagens icônicos para fãs de todas as idades.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/bonus-mascara.webp" alt="Máscaras 3D" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Máscaras 3D</h3><p>Dezenas de máscaras para cosplay ou decoração.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/stitch.webp" alt="Coleção Pokémon" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Coleção Pokémon</h3><p>+100 modelos clássicos para colecionadores e fãs.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/pantera.webp" alt="Decoração Premium" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Coleção de Natal</h3><p>Decorações natalinas para lucrar alto na temporada.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/tacacopa.webp" alt="Copa do Mundo" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Copa do Mundo 2026</h3><p>Chaveiros, troféus e acessórios para lucrar nos jogos.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/desenhos.webp" alt="Mascotes Esportivos" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Mascotes Esportivos</h3><p>Modelos detalhados para colecionadores e torcedores.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/bonus-utensilios.webp" alt="Luminárias STL" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>+250 Luminárias STL</h3><p>Abajures e painéis decorativos premium prontos para fatiar.</p></div>
+    </div>
+
+    <div class="bonus-card fade-up">
+      <div class="bonus-img-wrap">
+        <img class="bonus-img" src="./index_files/minecraft-1.webp" alt="Grupo Network" loading="lazy">
+        <span class="free-tag">GRÁTIS</span>
+      </div>
+      <div class="bonus-body"><h3>Grupo de Network</h3><p>Comunidade exclusiva de makers que vendem todo dia.</p></div>
+    </div>
+
+  </div>
+  <p class="bonus-total">Valor total dos bônus: R$ 597,10</p>
+  <p class="bonus-free">HOJE: R$ 0,00</p>
+  <p style="font-size:12px;color:var(--gray);margin-top:6px;">Disponível apenas para novos acessos hoje</p>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="planos">
+  <h2>ESCOLHA SEU PLANO</h2>
+  <p class="sub">Acesso imediato e vitalício. Sem mensalidades.</p>
+  <div class="plans">
+    <div class="plan fade-up">
+      <h3>Plano Iniciante</h3>
+      <div class="plan-price">R$ 10 <small>à vista</small></div>
+      <ul>
+        <li>Pack com +300 arquivos STL</li>
+        <li>100 STL Airsoft</li>
+        <li>100 STL Mascotes</li>
+        <li>100 STL Luminárias</li>
+        <li>Acesso vitalício</li>
+      </ul>
+      <button class="btn-plan secondary" onclick="openModal()">BAIXAR INICIANTE</button>
+    </div>
+    <div class="plan featured fade-up">
+      <div class="plan-badge">🔥 MAIS VENDIDO</div>
+      <h3>Mega Pack Premium</h3>
+      <div class="plan-from">De R$ 197,00</div>
+      <div class="plan-installment">Apenas 3x de R$ 13,97</div>
+      <div class="plan-price">R$ 34,90 <small>à vista</small></div>
+      <ul>
+        <li>100 STL Airsoft</li>
+        <li>100 STL Mascotes</li>
+        <li>100 STL Luminárias</li>
+        <li>Bônus 1: Pack de Veículos 3D</li>
+        <li>Bônus 2: Heróis da Marvel</li>
+        <li>Bônus 3: Chaveiros Personalizados</li>
+        <li>Bônus 4: Modelos Articulados</li>
+        <li>Bônus 5: Clássicos dos Desenhos</li>
+        <li>Bônus 6: Máscaras 3D</li>
+        <li>Bônus 7: Pokémon 3D</li>
+        <li>Bônus 8: Coleção de Natal</li>
+        <li>Bônus 9: Copa do Mundo 2026</li>
+        <li>Bônus 10: Mascotes Esportivos</li>
+        <li>Bônus 11: +250 Luminárias STL</li>
+        <li>Bônus 12: Grupo de Network</li>
+      </ul>
+      <a href="https://pay.cakto.com.br/mjqgmrk" class="btn-plan">QUERO ESSE AGORA ›</a>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-box fade-up">
+    <div class="shield">🛡️</div>
+    <h2>14 DIAS DE GARANTIA BLINDADA</h2>
+    <p>Se por qualquer motivo você não gostar do acervo em até 14 dias, devolvemos 100% do seu investimento. Sem burocracia. Sem perguntas. Risco zero.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <h2>DÚVIDAS FREQUENTES</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Funciona em qualquer impressora? <span class="arrow">⌄</span></div>
+        <div class="faq-a">Sim. Os arquivos STL funcionam na maioria das impressoras 3D, tanto FDM quanto resina. Basta usar o seu fatiador normalmente.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Preciso saber modelar? <span class="arrow">⌄</span></div>
+        <div class="faq-a">Não. Você recebe os modelos prontos para baixar, fatiar e imprimir, sem precisar criar nada do zero.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como recebo o acesso? <span class="arrow">⌄</span></div>
+        <div class="faq-a">Após a confirmação do pagamento, o acesso é enviado automaticamente para o seu e-mail cadastrado.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso vender os produtos impressos? <span class="arrow">⌄</span></div>
+        <div class="faq-a">Sim. Você pode imprimir os modelos e vender os produtos físicos para seus clientes sem restrições.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">As atualizações são pagas? <span class="arrow">⌄</span></div>
+        <div class="faq-a">Não. No plano premium, as atualizações ficam disponíveis sem mensalidade, para sempre.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>NÃO DEIXE SUA<br>IMPRESSORA <span style="color:var(--green)">PARADA</span></h2>
+  <p>O risco é 100% nosso. Se não ficar satisfeito em até 14 dias,<br>devolvemos cada centavo. Sem burocracia.</p>
+  <a href="https://pay.cakto.com.br/pfbdw69" class="btn-cta">BAIXAR COM DESCONTO ›</a>
+  <p class="btn-sub">Garantia incondicional de 14 dias</p>
+  <div class="trust-row">
+    <div class="trust-item"><span class="icon">🔒</span> Compra Segura</div>
+    <div class="trust-item"><span class="icon">🛡️</span> Dados Criptografados</div>
+    <div class="trust-item"><span class="icon">⚡</span> Acesso Imediato</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 3D Print Premium. Todos os direitos reservados. &nbsp;|&nbsp; <a href="file:///C:/Users/Windows%2010/Downloads/index_3.html#">Termos de Uso</a> &nbsp;|&nbsp; <a href="file:///C:/Users/Windows%2010/Downloads/index_3.html#">Privacidade</a></p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="stop">⚡</div>
+    <h3>ESPERA! OFERTA ÚNICA 🛑</h3>
+    <p>Liberamos desconto especial: acesse o <strong>Mega Pack Premium</strong> com todos os 150.000 modelos e bônus por apenas:</p>
+    <div class="old-price">De R$ 29,90</div>
+    <div class="new-price">R$ 19,90</div>
+    <div class="timer" id="timer">05:00</div>
+    <a href="https://pay.cakto.com.br/pfbdw69" class="btn-yes">SIM! QUERO TODOS OS BÔNUS POR R$ 19,90</a>
+    <button class="btn-no" onclick="closeModal()">Não, prefiro perder os bônus</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  let timerInterval, timerShown = false;
+
+  function openModal() {
+    if (timerShown) return;
+    timerShown = true;
+    document.getElementById('modal').classList.add('show');
+    startTimer(5 * 60);
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('show');
+    clearInterval(timerInterval);
+  }
+  function startTimer(seconds) {
+    const el = document.getElementById('timer');
+    function update() {
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      el.textContent = m + ':' + s;
+      if (seconds <= 0) { clearInterval(timerInterval); closeModal(); return; }
+      seconds--;
+    }
+    update();
+    timerInterval = setInterval(update, 1000);
+  }
+
+  let scrollTriggered = false;
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if (scrolled > 0.92 && !scrollTriggered && !timerShown) {
+      scrollTriggered = true;
+      setTimeout(openModal, 800);
+    }
+  });
+</script>
+
+
+</body></html>
