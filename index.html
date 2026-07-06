@@ -468,5 +468,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   });
 </script>
+<script>
+  // Inicializar dataLayer para GTM
+  window.dataLayer = window.dataLayer || [];
+
+  // ========== RASTREAR CLIQUES EM CTAs ==========
+  function trackCTA(buttonName, buttonType) {
+      window.dataLayer.push({
+          'event': 'cta_click',
+          'button_name': buttonName,
+          'button_type': buttonType,
+          'page_section': 'sales_page',
+          'timestamp': new Date().toISOString()
+      });
+      console.log('✅ Evento GTM: cta_click', {buttonName, buttonType});
+  }
+
+  // ========== RASTREAR SELEÇÃO DE PLANO ==========
+  function trackPlanSelection(planName, planPrice) {
+      window.dataLayer.push({
+          'event': 'pack_selection',
+          'plan_name': planName,
+          'plan_price': planPrice,
+          'timestamp': new Date().toISOString()
+      });
+      console.log('✅ Evento GTM: pack_selection', {planName, planPrice});
+  }
+
+  // ========== RASTREAR TENTATIVA DE COMPRA ==========
+  function trackPurchaseAttempt(planName, planPrice) {
+      window.dataLayer.push({
+          'event': 'purchase_attempt',
+          'plan_name': planName,
+          'plan_price': planPrice,
+          'source': 'sales_page',
+          'timestamp': new Date().toISOString()
+      });
+      console.log('✅ Evento GTM: purchase_attempt', {planName, planPrice});
+  }
+
+  // ========== RASTREAR POPUP DE OFERTA FINAL ==========
+  function trackOfferPopup(popupType, action) {
+      window.dataLayer.push({
+          'event': 'offer_popup',
+          'popup_type': popupType,
+          'action': action,
+          'timestamp': new Date().toISOString()
+      });
+      console.log('✅ Evento GTM: offer_popup', {popupType, action});
+  }
+
+  // ========== RASTREAR PAGE VIEW COM PARÂMETROS ==========
+  function trackPageView() {
+      const urlParams = new URLSearchParams(window.location.search);
+      window.dataLayer.push({
+          'event': 'page_view',
+          'page_title': document.title,
+          'page_url': window.location.href,
+          'utm_source': urlParams.get('utm_source') || 'direct',
+          'utm_medium': urlParams.get('utm_medium') || 'none',
+          'utm_campaign': urlParams.get('utm_campaign') || 'none',
+          'utm_content': urlParams.get('utm_content') || 'none',
+          'gclid': urlParams.get('gclid') || null,
+          'fbclid': urlParams.get('fbclid') || null,
+          'timestamp': new Date().toISOString()
+      });
+      console.log('✅ Evento GTM: page_view');
+  }
+
+  // ========== EXECUTAR AO CARREGAR ==========
+  window.addEventListener('load', function() {
+      trackPageView();
+      console.log('📊 GTM Rastreamento Inicializado!');
+  });
+</script>
 </body>
 </html>
